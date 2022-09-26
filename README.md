@@ -41,7 +41,11 @@ Find the manifest.json file in the Packages folder of your project and edit it t
 }
 ```
 
-<!-- DOC-START --><!-- DOC-END -->
+<!-- DOC-START -->
+## Usage
+When enabled this package will automatically pause the Music app or Spotify on Mac OS.<br>
+To toggle Enable/Disable go to the Window/Tunes menu and select the 'Enable' option to toggle on or off.
+<!-- DOC-END -->
 
 ## Author
 
