@@ -8,6 +8,11 @@
 </p>
 <h1 align="center">Gameframe.Tunes 👋</h1>
 
+<!-- BADGE-START ->
+<img align="center" src="https://raw.githubusercontent.com/coryleach/UnityPackages/master/Documentation/GameframeFace.gif" />
+</p>
+<h1 align="center">Gameframe.Tunes 👋</h1>
+
 <!-- BADGE-START -<!-- BADGE-END -->
 
 Automatically pause music on OSX when entering play mode
@@ -37,11 +42,17 @@ Find the manifest.json file in the Packages folder of your project and edit it t
 
 👤 **Cory Leach**
 
+* Twitter: [@coryleach](https://twitter.com/coryleach)
 * Github: [@coryleach](https://github.com/coryleach)
 
 
 ## Show your support
 Give a ⭐️ if this project helped you!
+<br />
+Please consider supporting it either by contributing to the Github projects (submitting bug reports or features and/or creating pull requests) or by buying me coffee using any of the links below. Every little bit helps!
+<br />
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/coryleach)
 
 
 ***
