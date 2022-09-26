@@ -1,4 +1,5 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 
 namespace Gameframe.Tunes
@@ -10,31 +11,55 @@ namespace Gameframe.Tunes
         {
         }
 
-        private static bool isPaused = false;
+        private static readonly Dictionary<string, bool> IsPaused = new Dictionary<string, bool>();
+
+        private static bool GetIsPaused(string app)
+        {
+            return IsPaused.TryGetValue(app, out var val) && val;
+        }
+
+        private static void SetIsPaused(string app, bool value)
+        {
+            IsPaused[app] = value;
+        }
 
         [InitializeOnEnterPlayMode]
         private static void InitializeOnEnterPlayMode()
         {
-            isPaused = false;
+            IsPaused.Clear();
             EditorApplication.playModeStateChanged += ModeChangedOnPlay;
         }
 
         private static void ModeChangedOnPlay(PlayModeStateChange state)
         {
+            if (!Settings.Enabled)
+            {
+                return;
+            }
+
             switch (state)
             {
                 case PlayModeStateChange.EnteredEditMode:
                     EditorApplication.playModeStateChanged -= ModeChangedOnPlay;
-                    if (isPaused)
+
+                    if (!Settings.ResumeOnExit)
                     {
-                        TunesUtility.UnpauseMusic();
+                        return;
+                    }
+
+                    foreach (var app in Settings.ControlledApps.Where(GetIsPaused))
+                    {
+                        TunesUtility.UnpauseMusic(app);
                     }
                     break;
                 case PlayModeStateChange.EnteredPlayMode:
-                    if (TunesUtility.IsPlaying())
+                    foreach (var app in Settings.ControlledApps.Where(TunesUtility.IsPlaying))
                     {
-                        isPaused = true;
-                        TunesUtility.PauseMusic();
+                        SetIsPaused(app,true);
+                        if (Settings.PauseOnPlay)
+                        {
+                            TunesUtility.PauseMusic(app);
+                        }
                     }
                     break;
             }
