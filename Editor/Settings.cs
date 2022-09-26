@@ -9,7 +9,7 @@ namespace Gameframe.Tunes
     {
         private static UtilityPreferences _prefs;
 
-        private const string PrefsKey = "com.gameframe.tunes-prefs3";
+        private const string PrefsKey = "com.gameframe.tunes-prefs";
 
         static Settings()
         {
