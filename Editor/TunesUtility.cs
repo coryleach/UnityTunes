@@ -6,11 +6,28 @@ using UnityEngine;
 namespace Gameframe.Tunes
 {
     [Serializable]
-    public struct MusicScripts
+    public struct PlatformScripts
     {
         public string checkPlaying;
         public string play;
         public string pause;
+    }
+
+    [Serializable]
+    public struct MusicScripts
+    {
+        public PlatformScripts Win;
+        public PlatformScripts Mac;
+
+#if UNITY_EDITOR_OSX
+        public string checkPlaying => Mac.checkPlaying;
+        public string play => Mac.play;
+        public string pause => Mac.pause;
+#else
+        public string checkPlaying => Win.checkPlaying;
+        public string play => Win.play;
+        public string pause => Win.pause;
+#endif
     }
 
     [Serializable]
@@ -40,9 +57,18 @@ namespace Gameframe.Tunes
                     name = "Music",
                     scripts = new MusicScripts
                     {
-                        checkPlaying = "music_checkIfPlaying.scpt",
-                        play = "music_play.scpt",
-                        pause = "music_pause.scpt",
+                        Mac = new PlatformScripts
+                        {
+                            checkPlaying = "music_checkIfPlaying.scpt",
+                            play = "music_play.scpt",
+                            pause = "music_pause.scpt",
+                        },
+                        Win = new PlatformScripts
+                        {
+                            checkPlaying = "music_checkIfPlaying.scpt",
+                            play = "music_play.scpt",
+                            pause = "music_pause.scpt",
+                        }
                     }
                 }
             },
@@ -53,9 +79,18 @@ namespace Gameframe.Tunes
                     name = "Spotify",
                     scripts = new MusicScripts()
                     {
-                        checkPlaying = "spot_checkIfPlaying.scpt",
-                        play = "spot_play.scpt",
-                        pause = "spot_pause.scpt",
+                        Mac = new PlatformScripts()
+                        {
+                            checkPlaying = "spot_checkIfPlaying.scpt",
+                            play = "spot_play.scpt",
+                            pause = "spot_pause.scpt",
+                        },
+                        Win = new PlatformScripts
+                        {
+                            checkPlaying = "music_checkIfPlaying.scpt",
+                            play = "music_play.scpt",
+                            pause = "music_pause.scpt",
+                        }
                     }
                 }
             },
@@ -66,8 +101,10 @@ namespace Gameframe.Tunes
 #if UNITY_EDITOR_OSX
             var output = GetScriptOutput("checkIfPlaying.scpt");
             return output.Contains("true");
+#elif UNITY_EDITOR_WIN
+
 #endif
-            //Only implemented for OSX currently
+            //Only implemented for this platform
             return false;
         }
 
@@ -95,8 +132,10 @@ namespace Gameframe.Tunes
 #if UNITY_EDITOR_OSX
             var output = GetScriptOutput(app.scripts.checkPlaying);
             return output.Contains("true");
+#elif UNITY_EDITOR_WIN
+
 #endif
-            //Only implemented for OSX currently
+            //Not implemented on this platform
             return false;
         }
 
