@@ -87,9 +87,9 @@ namespace Gameframe.Tunes
                         },
                         Win = new PlatformScripts
                         {
-                            checkPlaying = "music_checkIfPlaying.scpt",
-                            play = "music_play.scpt",
-                            pause = "music_pause.scpt",
+                            checkPlaying = "checkIfPlaying.ps1",
+                            play = "play.ps1",
+                            pause = "pause.ps1",
                         }
                     }
                 }
@@ -161,6 +161,17 @@ namespace Gameframe.Tunes
         private static string GetScriptOutput(string scriptName)
         {
 #if UNITY_EDITOR_OSX
+            var assetPath = $"Packages/com.gameframe.tunes/Shell/osx/{scriptName}";
+            if (!File.Exists(assetPath))
+            {
+                Debug.LogError($"{assetPath} does not exist in {Directory.GetCurrentDirectory()}");
+                return string.Empty;
+            }
+
+            var fullPath = Path.GetFullPath(assetPath).Replace(" ", "\\ ");
+            var cmd = $"osascript {fullPath}";
+            return ShellUtility.GetCommandResult(cmd).ToLower();
+#elif UNITY_EDITOR_WIN
             var assetPath = $"Packages/com.gameframe.tunes/Shell/osx/{scriptName}";
             if (!File.Exists(assetPath))
             {

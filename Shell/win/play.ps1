@@ -45,10 +45,9 @@ $result = $SendMessage::SendMessage($spotifyProcess.MainWindowHandle, 0x0319, 0,
 
 if ( IsSpotifyRunning )
 {
-    if ( IsPlaying )
+    if ( -not (IsPlaying) )
     {
-        echo "true"
-        return
+        PlayPause
     }
+    echo "Play."
 }
-echo "false"

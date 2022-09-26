@@ -47,8 +47,7 @@ if ( IsSpotifyRunning )
 {
     if ( IsPlaying )
     {
-        echo "true"
-        return
+        PlayPause
     }
+    echo "Paused."
 }
-echo "false"
