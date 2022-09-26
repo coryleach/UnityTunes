@@ -1,0 +1,18 @@
+{
+  "githubUrl": "",
+  "name": "com.gameframe.tunes",
+  "displayName": "Gameframe.Tunes",
+  "repositoryName": "UnityTunes",
+  "version": "0.1.0",
+  "description": "Automatically pause music on OSX when entering play mode",
+  "keywords": [],
+  "author": {
+    "name": "Cory Leach",
+    "email": "cory.leach@gmail.com",
+    "url": "",
+    "twitter": "",
+    "github": "coryleach",
+    "kofi": ""
+  },
+  "type": "library"
+}
