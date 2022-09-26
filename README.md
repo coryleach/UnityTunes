@@ -45,6 +45,7 @@ Find the manifest.json file in the Packages folder of your project and edit it t
 ## Usage
 When enabled this package will automatically pause the Music app or Spotify on Mac OS.<br>
 To toggle Enable/Disable go to the Window/Tunes menu and select the 'Enable' option to toggle on or off.
+<img src="https://raw.githubusercontent.com/coryleach/UnityTunes/main/Img/HowTo.png" />
 <!-- DOC-END -->
 
 ## Author
