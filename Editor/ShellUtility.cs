@@ -14,9 +14,7 @@ namespace Gameframe.Tunes
         public static string GetCommandResult(string command, bool trimOutput = true)
         {
 #if UNITY_EDITOR_WIN
-          var commandBytes = System.Text.Encoding.Unicode.GetBytes(command);
-          var encodedCommand = Convert.ToBase64String(commandBytes);
-          var processInfo = new ProcessStartInfo("powershell.exe", $"-EncodedCommand {encodedCommand}")
+          var processInfo = new ProcessStartInfo("powershell.exe", command.Replace("\\", "\\\\"))
           {
             CreateNoWindow = true,
             UseShellExecute = false,

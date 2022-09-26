@@ -102,7 +102,6 @@ namespace Gameframe.Tunes
             var output = GetScriptOutput("checkIfPlaying.scpt");
             return output.Contains("true");
 #elif UNITY_EDITOR_WIN
-
 #endif
             //Only implemented for this platform
             return false;
@@ -128,27 +127,24 @@ namespace Gameframe.Tunes
 
         public static bool IsPlaying(string name)
         {
+#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
             var app = GetAppData(name);
-#if UNITY_EDITOR_OSX
             var output = GetScriptOutput(app.scripts.checkPlaying);
             return output.Contains("true");
-#elif UNITY_EDITOR_WIN
-
-#endif
+#else
             //Not implemented on this platform
             return false;
+#endif      
         }
 
         public static void PauseMusic(string name)
         {
-            //Debug.Log($"Pause {name}");
             var app = GetAppData(name);
             GetScriptOutput(app.scripts.pause);
         }
 
         public static void UnpauseMusic(string name)
         {
-            //Debug.Log($"Unpause {name}");
             var app = GetAppData(name);
             GetScriptOutput(app.scripts.play);
         }
@@ -172,19 +168,20 @@ namespace Gameframe.Tunes
             var cmd = $"osascript {fullPath}";
             return ShellUtility.GetCommandResult(cmd).ToLower();
 #elif UNITY_EDITOR_WIN
-            var assetPath = $"Packages/com.gameframe.tunes/Shell/osx/{scriptName}";
+            var assetPath = $"Packages/com.gameframe.tunes/Shell/win/{scriptName}";
             if (!File.Exists(assetPath))
             {
-                Debug.LogError($"{assetPath} does not exist in {Directory.GetCurrentDirectory()}");
+                //Debug.LogError($"{assetPath} does not exist in {Directory.GetCurrentDirectory()}");
                 return string.Empty;
             }
 
             var fullPath = Path.GetFullPath(assetPath).Replace(" ", "\\ ");
-            var cmd = $"osascript {fullPath}";
-            return ShellUtility.GetCommandResult(cmd).ToLower();
-#endif
+            var result = ShellUtility.GetCommandResult(fullPath);
+            return result != null ? result.ToLower() : string.Empty;
+#else
             //Not implemented for platform
             return string.Empty;
+#endif  
         }
     }
 }
