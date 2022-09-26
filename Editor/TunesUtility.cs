@@ -171,7 +171,6 @@ namespace Gameframe.Tunes
             var assetPath = $"Packages/com.gameframe.tunes/Shell/win/{scriptName}";
             if (!File.Exists(assetPath))
             {
-                //Debug.LogError($"{assetPath} does not exist in {Directory.GetCurrentDirectory()}");
                 return string.Empty;
             }
 
@@ -183,5 +182,23 @@ namespace Gameframe.Tunes
             return string.Empty;
 #endif  
         }
+
+        public static void CheckCompatibility()
+        {
+            if ( !Settings.Enabled )
+            {
+                return;
+            }
+
+#if UNITY_EDITOR_WIN
+            var executionPolicy = ShellUtility.GetCommandResult("Get-ExecutionPolicy");
+            if (executionPolicy == "Restricted")
+            {
+                UnityEditor.EditorUtility.DisplayDialog("Script Error", "Scripts are restricted on this machine. Tunes utility will be disabled. Please run Powershell in Administrator mode and run the command 'Set-ExecutionPolicy RemoteSigned' or 'Set-ExecutionPolicy Unrestricted'. ","Ok");
+                Settings.Enabled = false;
+            }
+#endif
+        }
+
     }
 }

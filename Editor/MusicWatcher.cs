@@ -9,6 +9,7 @@ namespace Gameframe.Tunes
     {
         static MusicWatcher()
         {
+            TunesUtility.CheckCompatibility();
         }
 
         private static readonly Dictionary<string, bool> IsPaused = new Dictionary<string, bool>();
@@ -26,6 +27,7 @@ namespace Gameframe.Tunes
         [InitializeOnEnterPlayMode]
         private static void InitializeOnEnterPlayMode()
         {
+            TunesUtility.CheckCompatibility();
             IsPaused.Clear();
             EditorApplication.playModeStateChanged += ModeChangedOnPlay;
         }
