@@ -65,9 +65,9 @@ namespace Gameframe.Tunes
                         },
                         Win = new PlatformScripts
                         {
-                            checkPlaying = "music_checkIfPlaying.scpt",
-                            play = "music_play.scpt",
-                            pause = "music_pause.scpt",
+                            checkPlaying = "itunes_checkIfPlaying.ps1",
+                            play = "itunes_play.ps1",
+                            pause = "itunes_pause.ps1",
                         }
                     }
                 }
