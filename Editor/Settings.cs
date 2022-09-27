@@ -27,9 +27,11 @@ namespace Gameframe.Tunes
             var json = EditorPrefs.GetString(PrefsKey);
             if (string.IsNullOrEmpty(json))
             {
+                var enabled = EditorUtility.DisplayDialog("Enable AutoPause",
+                    "Would you like to enable auto-pause for iTunes/Spotify when in play mode?", "Yes", "No");
                 _prefs = new UtilityPreferences()
                 {
-                    enabled = true,
+                    enabled = enabled,
                     pauseOnPlay = true,
                     resumeOnExit = true,
                     controlledApps = new List<string>() { "Music", "Spotify" }

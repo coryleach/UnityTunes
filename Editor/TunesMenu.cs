@@ -88,6 +88,7 @@ namespace Gameframe.Tunes
             {
                 Settings.ControlledApps.Add(app);
             }
+            Settings.Save();
         }
 
         private static bool AppValidate(string path, string app)
