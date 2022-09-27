@@ -23,9 +23,16 @@
 </p>
 <h1 align="center">Gameframe.Tunes 👋</h1>
 
+<!-- BADGE-START ->
+<img align="center" src="https://raw.githubusercontent.com/coryleach/UnityPackages/master/Documentation/GameframeFace.gif" />
+</p>
+<h1 align="center">Gameframe.Tunes 👋</h1>
+
 <!-- BADGE-START -<!-- BADGE-END -->
 
-Automatically pause Music (iTunes/Spotify) on Windows and OSX when entering play mode
+Automatically pause Music (iTunes/Spotify) on Windows and OSX when entering play mode  
+  
+Intelligently checks if music is playing and remembers if it actually paused playing music so that it will unpause only if it paused.
 
 ## Quick Package Install
 

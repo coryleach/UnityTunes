@@ -4,7 +4,7 @@
   "displayName": "Gameframe.Tunes",
   "repositoryName": "UnityTunes",
   "version": "0.3.0",
-  "description": "Automatically pause Music (iTunes/Spotify) on Windows and OSX when entering play mode",
+  "description": "Automatically pause Music (iTunes/Spotify) on Windows and OSX when entering play mode\n\nIntelligently checks if music is playing and remembers if it actually paused playing music so that it will unpause only if it paused.",
   "keywords": [],
   "author": {
     "name": "Cory Leach",
