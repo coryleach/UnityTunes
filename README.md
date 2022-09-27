@@ -25,7 +25,7 @@
 
 <!-- BADGE-START -<!-- BADGE-END -->
 
-Automatically pause Music (iTunes/Spotify) on OSX when entering play mode
+Automatically pause Music (iTunes/Spotify) on Windows and OSX when entering play mode
 
 ## Quick Package Install
 
