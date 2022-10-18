@@ -3,35 +3,11 @@
 </p>
 <h1 align="center">Gameframe.Tunes 👋</h1>
 
-<!-- BADGE-START ->
-<img align="center" src="https://raw.githubusercontent.com/coryleach/UnityPackages/master/Documentation/GameframeFace.gif" />
-</p>
-<h1 align="center">Gameframe.Tunes 👋</h1>
-
-<!-- BADGE-START ->
-<img align="center" src="https://raw.githubusercontent.com/coryleach/UnityPackages/master/Documentation/GameframeFace.gif" />
-</p>
-<h1 align="center">Gameframe.Tunes 👋</h1>
-
-<!-- BADGE-START ->
-<img align="center" src="https://raw.githubusercontent.com/coryleach/UnityPackages/master/Documentation/GameframeFace.gif" />
-</p>
-<h1 align="center">Gameframe.Tunes 👋</h1>
-
-<!-- BADGE-START ->
-<img align="center" src="https://raw.githubusercontent.com/coryleach/UnityPackages/master/Documentation/GameframeFace.gif" />
-</p>
-<h1 align="center">Gameframe.Tunes 👋</h1>
-
-<!-- BADGE-START ->
-<img align="center" src="https://raw.githubusercontent.com/coryleach/UnityPackages/master/Documentation/GameframeFace.gif" />
-</p>
-<h1 align="center">Gameframe.Tunes 👋</h1>
-
-<!-- BADGE-START -<!-- BADGE-END -->
+<!-- BADGE-START -->
+<!-- BADGE-END -->
 
 Automatically pause Music (iTunes/Spotify) on Windows and OSX when entering play mode  
-  
+
 Intelligently checks if music is playing and remembers if it actually paused playing music so that it will unpause only if it paused.
 
 ## Quick Package Install
@@ -39,7 +15,7 @@ Intelligently checks if music is playing and remembers if it actually paused pla
 #### Using UnityPackageManager (for Unity 2019.3 or later)
 Open the package manager window (menu: Window > Package Manager)<br/>
 Select "Add package from git URL...", fill in the pop-up with the following link:<br/>
-https://github.com/coryleach/UnityTunes.git#0.3.0<br/>
+https://github.com/coryleach/UnityTunes.git#0.3.1<br/>
 
 #### Using UnityPackageManager (for Unity 2019.1 or later)
 
@@ -47,7 +23,7 @@ Find the manifest.json file in the Packages folder of your project and edit it t
 ```js
 {
   "dependencies": {
-    "com.gameframe.tunes": "https://github.com/coryleach/UnityTunes.git#0.3.0",
+    "com.gameframe.tunes": "https://github.com/coryleach/UnityTunes.git#0.3.1",
     ...
   },
 }

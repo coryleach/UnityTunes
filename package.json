@@ -1,18 +1,1 @@
-{
-  "githubUrl": "https://github.com/coryleach/UnityTunes",
-  "name": "com.gameframe.tunes",
-  "displayName": "Gameframe.Tunes",
-  "repositoryName": "UnityTunes",
-  "version": "0.3.0",
-  "description": "Automatically pause Music (iTunes/Spotify) on Windows and OSX when entering play mode\n\nIntelligently checks if music is playing and remembers if it actually paused playing music so that it will unpause only if it paused.",
-  "keywords": [],
-  "author": {
-    "name": "Cory Leach",
-    "email": "cory.leach@gmail.com",
-    "url": "https://github.com/coryleach",
-    "twitter": "coryleach",
-    "github": "coryleach",
-    "kofi": "https://ko-fi.com/coryleach"
-  },
-  "type": "library"
-}
+{"githubUrl":"https://github.com/coryleach/UnityTunes","name":"com.gameframe.tunes","displayName":"Gameframe.Tunes","repositoryName":"UnityTunes","version":"0.3.1","description":"Automatically pause Music (iTunes/Spotify) on Windows and OSX when entering play mode\n\nIntelligently checks if music is playing and remembers if it actually paused playing music so that it will unpause only if it paused.","keywords":[],"author":{"name":"Cory Leach","email":"cory.leach@gmail.com","url":"https://github.com/coryleach","twitter":"coryleach","github":"coryleach","kofi":"https://ko-fi.com/coryleach"},"type":"library"}
