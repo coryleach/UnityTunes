@@ -27,15 +27,19 @@ namespace Gameframe.Tunes
             var json = EditorPrefs.GetString(PrefsKey);
             if (string.IsNullOrEmpty(json))
             {
-                var enabled = EditorUtility.DisplayDialog("Enable AutoPause",
-                    "Would you like to enable auto-pause for iTunes/Spotify when in play mode?", "Yes", "No");
+                //Disabling this because I guess people get confused when prompted
+                /*var enabled = EditorUtility.DisplayDialog("Enable AutoPause",
+                    "Would you like to enable auto-pause for iTunes/Spotify when in play mode?", "Yes", "No");*/
                 _prefs = new UtilityPreferences()
                 {
-                    enabled = enabled,
+                    enabled = false, //=enabled,
                     pauseOnPlay = true,
                     resumeOnExit = true,
                     controlledApps = new List<string>() { "Music", "Spotify" }
                 };
+                //We need to make sure we save immediately
+                //So people who don't interact with with the plugin get prompted every time they open unity
+                Save();
                 return;
             }
             _prefs = JsonUtility.FromJson<UtilityPreferences>(json);
