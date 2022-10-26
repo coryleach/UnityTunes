@@ -99,12 +99,12 @@ namespace Gameframe.Tunes
         public static bool IsPlaying()
         {
 #if UNITY_EDITOR_OSX
-            var output = GetScriptOutput("checkIfPlaying.scpt");
-            return output.Contains("true");
-#elif UNITY_EDITOR_WIN
-#endif
-            //Only implemented for this platform
+            var result = GetScriptOutput("checkIfPlaying.scpt");
+            return result.Contains("true");
+#else
+            Debug.LogError("IsPlaying not implemented for this platform.");
             return false;
+#endif
         }
 
         public static void PauseMusic()
@@ -134,7 +134,7 @@ namespace Gameframe.Tunes
 #else
             //Not implemented on this platform
             return false;
-#endif      
+#endif
         }
 
         public static void PauseMusic(string name)
@@ -180,7 +180,7 @@ namespace Gameframe.Tunes
 #else
             //Not implemented for platform
             return string.Empty;
-#endif  
+#endif
         }
 
         public static void CheckCompatibility()
